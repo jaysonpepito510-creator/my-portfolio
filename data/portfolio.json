@@ -1,1 +1,15 @@
-
+{
+  "fullName": "Jayson Pepito",
+  "heroRole": "IT Specialist / Full-Stack Developer",
+  "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+  "locationBadge": "📍 Davao City, Philippines • Available for Local & Remote Roles",
+  "heroTagline": "Building enterprise-grade web applications, automated Python systems, and scalable databases.",
+  "aboutParagraph1": "I am a dedicated IT Specialist and Full-Stack Developer residing in Davao City, Philippines.",
+  "projects": [
+    {
+      "title": "Inventory System",
+      "description": "Flask & MySQL inventory manager",
+      "tech": "Python, Flask, MySQL"
+    }
+  ]
+}
