@@ -537,3 +537,52 @@
     </script>
 </body>
 </html>
+
+<!-- ... rest of your HTML content above ... -->
+        </main>
+
+        <!-- PASTE OR REPLACE THE SCRIPT HERE -->
+        <script>
+          async function loadPortfolioData() {
+            try {
+              // Fetch JSON updated by Decap CMS
+              const response = await fetch('./data/portfolio.json');
+              const data = await response.json();
+
+              // Update text fields
+              if (data.fullName) document.querySelectorAll('[data-key="fullName"]').forEach(el => el.textContent = data.fullName);
+              if (data.heroRole) document.querySelectorAll('[data-key="heroRole"]').forEach(el => el.textContent = data.heroRole);
+              if (data.locationBadge) document.querySelector('[data-key="locationBadge"]').textContent = data.locationBadge;
+              if (data.heroTagline) document.querySelector('[data-key="heroTagline"]').textContent = data.heroTagline;
+              if (data.aboutParagraph1) document.querySelector('[data-key="aboutParagraph1"]').textContent = data.aboutParagraph1;
+
+              // Update Profile Picture
+              if (data.avatar) {
+                const img = document.getElementById('hero-avatar');
+                if (img) img.src = data.avatar;
+              }
+
+              // Render Projects
+              if (data.projects) {
+                const container = document.getElementById('projects-container');
+                if (container) {
+                  container.innerHTML = data.projects.map(p => `
+                    <div class="glass-card p-6 rounded-3xl space-y-4">
+                      <h3 class="text-xl font-bold text-white">${p.title}</h3>
+                      <p class="text-sm text-slate-300">${p.description}</p>
+                      <div class="text-xs font-mono text-accent-cyan">${p.tech}</div>
+                    </div>
+                  `).join('');
+                }
+              }
+            } catch (error) {
+              console.log('Error loading portfolio data:', error);
+            }
+            lucide.createIcons();
+          }
+
+          window.addEventListener('DOMContentLoaded', loadPortfolioData);
+        </script>
+
+    </body>
+</html>
