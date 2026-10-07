@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio Settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "content"
+        label: "Site Content"
+        file: "data/portfolio.json"
+        fields:
+          - { label: "Full Name", name: "fullName", widget: "string" }
+          - { label: "Hero Role", name: "heroRole", widget: "string" }
+          - { label: "Profile Picture", name: "avatar", widget: "image", required: false }
+          - { label: "Location Badge", name: "locationBadge", widget: "string" }
+          - { label: "Hero Tagline", name: "heroTagline", widget: "text" }
+          - { label: "About Paragraph 1", name: "aboutParagraph1", widget: "text" }
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Project Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Technologies Used", name: "tech", widget: "string" }
